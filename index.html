@@ -12,16 +12,13 @@
     <div class="max-w-5xl mx-auto px-6 py-12">
         <div class="text-center mb-12">
             <div class="inline-flex items-center gap-3 mb-4">
-                <div class="w-11 h-11 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl flex items-center justify-center text-3xl shadow-inner">🃏</div>
-                <h1 class="text-5xl font-bold tracking-tighter">Flashcard PDF Maker</h1>
+                <div class="w-11 h-11 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-3xl flex items-center justify-center text-3xl shadow-inner"></div>
+                <h1 class="text-5xl font-bold tracking-tighter">Flashcard Maker</h1>
             </div>
-            <p class="text-blue-300 text-xl">Create beautiful double-sided printable flashcards in seconds</p>
         </div>
-
-        <!-- CLEAR INSTRUCTIONS -->
         <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 mb-10">
             <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2">
-                📝 How to enter your cards
+             How to enter your cards
             </h2>
             <div class="grid md:grid-cols-2 gap-6 text-sm">
                 <div>
@@ -55,10 +52,9 @@
                    min="4" max="20" step="2" value="10"
                    class="w-full accent-emerald-400 cursor-pointer">
             <div class="flex justify-between text-xs text-white/50 mt-1">
-                <span>4 cards (big text)</span>
-                <span>20 cards (more per page)</span>
+                <span>4 cards</span>
+                <span>20 cards</span>
             </div>
-            <p class="text-[10px] text-white/40 mt-4">Layout automatically adjusts • font size scales • always 2-column for perfect double-sided printing</p>
         </div>
         <div class="mb-8">
             <label class="block text-sm font-medium text-white/70 mb-3">Your flashcards (front, back)</label>
@@ -88,7 +84,7 @@
         <!-- LIVE PREVIEW -->
         <div class="mt-16">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold">Live Preview (click any card to flip)</h3>
+                <h3 class="text-2xl font-semibold">click any card to flip</h3>
                 <button onclick="clearAll()" 
                         class="text-white/50 hover:text-white text-sm flex items-center gap-2">
                     <span>Clear everything</span>
@@ -96,7 +92,6 @@
             </div>
             <div id="preview-grid" 
                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-                <!-- JS will fill this with flip cards -->
             </div>
         </div>
     </div>
