@@ -33,7 +33,7 @@ function parseInput() {
   return text
     .split("\n")
     .map((line) => {
-      const commaIndex = line.indexOf("  ");
+      const commaIndex = line.indexOf("  ") !== -1 ? line.indexOf("  ") : line.indexOf(",");
       if (commaIndex === -1) return null;
 
       const front = line.substring(0, commaIndex).trim();
@@ -76,7 +76,16 @@ function renderPreview() {
         `;
     grid.innerHTML += cardHTML;
   });
+  updateCardCount();
 }
+document.getElementById("input").addEventListener("input", () => {
+    renderPreview();
+});
+window.onload = () => {
+  document.getElementById("input").value = defaultInput;
+  renderPreview();   
+  setupSlider();
+};
 document.getElementById("input").addEventListener("input", renderPreview);
 
 function addFlashcardPage(doc, texts, cardsPerPage) {
@@ -184,7 +193,14 @@ function downloadPDF() {
   status.innerHTML = `Downloaded! Print double-sided → Flip on long edge`;
   setTimeout(() => (status.innerHTML = ""), 7000);
 }
-
+function updateCardCount() {
+    const pairs = parseInput();
+    const countElement = document.getElementById("card-count");
+    if (!countElement) return;
+    
+    const count = pairs.length;
+    countElement.textContent = count === 1 ? "1 card" : `${count} cards`;
+}
 function clearAll() {
   if (confirm("Clear everything and start fresh?")) {
     document.getElementById("input").value = "";
@@ -193,5 +209,6 @@ function clearAll() {
     document.getElementById("download-btn").classList.add("opacity-50");
     document.getElementById("status").innerHTML = "";
     renderPreview();
+    updateCardCount();
   }
 }
