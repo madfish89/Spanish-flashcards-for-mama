@@ -175,7 +175,7 @@ function createPDF() {
 function downloadPDF() {
   if (!currentDoc) return;
   let filename = document.getElementById("pdf-filename").value.trim();
-  if (!filename == "") {
+  if (filename == "") {
     filename = "myflashcards";
   }
   filename = filename.replace(/[^a-z0-9-_ ]/gi, '_').trim();
